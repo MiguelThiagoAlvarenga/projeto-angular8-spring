@@ -1,5 +1,6 @@
 package com.empresa.cadastroproposta.repositorys;
 
+import com.empresa.cadastroproposta.Enum.LimiteCreditoEnum;
 import com.empresa.cadastroproposta.models.LimiteCred;
 import org.springframework.data.jpa.repository.JpaRepository;
 

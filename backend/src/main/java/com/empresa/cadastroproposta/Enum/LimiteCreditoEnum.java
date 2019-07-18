@@ -10,9 +10,9 @@ public enum LimiteCreditoEnum {
     SUPERIOR_2000(6, "Superior a 2000");
 
     public final String descricao;
-    public final Integer id;
+    public final long id;
 
-    LimiteCreditoEnum(Integer id, String nome) {
+    LimiteCreditoEnum(long id, String nome) {
 
         this.descricao = nome;
         this.id = id;

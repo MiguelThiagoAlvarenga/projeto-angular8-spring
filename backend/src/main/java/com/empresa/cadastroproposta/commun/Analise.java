@@ -4,7 +4,8 @@ import com.empresa.cadastroproposta.models.Proposta;
 
 public class Analise {
 
-    public static void Analisar(Proposta proposta){
-        
+    public Proposta Analisar(Proposta proposta){
+
+        return null;
     }
 }
