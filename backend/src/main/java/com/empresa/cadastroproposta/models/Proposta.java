@@ -19,11 +19,11 @@ public class Proposta {
     @Column(name = "aprovada")
     private Boolean aprovada;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_cliente", referencedColumnName = "id")
     private Cliente cliente;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_limite", referencedColumnName = "id")
     private LimiteCred limiteCred;
 

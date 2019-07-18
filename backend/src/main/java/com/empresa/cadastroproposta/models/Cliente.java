@@ -1,5 +1,7 @@
 package com.empresa.cadastroproposta.models;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,7 +18,7 @@ public class Cliente {
     private String nome;
 
     @Basic
-    @Column(name = "cpf")
+    @Column(name = "cpf", unique = true)
     private String cpf;
 
     @Basic
@@ -27,7 +29,7 @@ public class Cliente {
     @Column(name = "sexo")
     private String sexo;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_estado_civil", referencedColumnName = "id")
     private EstadoCivil estadoCivil;
 
@@ -83,12 +85,12 @@ public class Cliente {
         this.sexo = sexo;
     }
 
-    public EstadoCivil getEstado_civil() {
+    public EstadoCivil getEstadoCivil() {
         return estadoCivil;
     }
 
-    public void setEstado_civil(EstadoCivil estado_civil) {
-        this.estadoCivil = estado_civil;
+    public void setEstadoCivil(EstadoCivil estadoCivil) {
+        this.estadoCivil = estadoCivil;
     }
 
     public String getEstado() {

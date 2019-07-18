@@ -1,8 +1,10 @@
 package com.empresa.cadastroproposta.services.imps;
 
 import com.empresa.cadastroproposta.Enum.LimiteCreditoEnum;
+import com.empresa.cadastroproposta.models.EstadoCivil;
 import com.empresa.cadastroproposta.models.Proposta;
 import com.empresa.cadastroproposta.repositorys.ClienteRepository;
+import com.empresa.cadastroproposta.repositorys.EstadoCivilRepository;
 import com.empresa.cadastroproposta.repositorys.LimiteRepository;
 import com.empresa.cadastroproposta.repositorys.PropostaRepository;
 import com.empresa.cadastroproposta.services.PropostaService;
@@ -18,6 +20,9 @@ public class PropostaServiceImp implements PropostaService {
 
     @Autowired
     PropostaRepository propostaRepository;
+
+    @Autowired
+    EstadoCivilRepository estadoCivilRepository;
 
     @Autowired
     ClienteRepository clienteRepository;
@@ -43,6 +48,11 @@ public class PropostaServiceImp implements PropostaService {
 
     @Override
     public Proposta cadastrar(Proposta novaProposta) {
+        novaProposta.getCliente().setEstadoCivil(
+                estadoCivilRepository.findById(
+                        novaProposta.getCliente().getEstadoCivil().getId()
+                ));
+
         clienteRepository.save(novaProposta.getCliente());
         this.Analisar(novaProposta);
         return propostaRepository.save(novaProposta);

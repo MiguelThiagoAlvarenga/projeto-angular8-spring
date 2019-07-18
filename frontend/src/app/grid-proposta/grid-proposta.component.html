@@ -24,8 +24,8 @@
           <td>{{proposta.cliente.estado}}</td>
           <td>{{proposta.cliente.dependentes}}</td>
           <td>{{proposta.cliente.renda}}</td>
-          <td *ngIf="proposta.aprovado">Aprovado</td>
-          <td *ngIf="!proposta.aprovado">Negado</td>
+          <td *ngIf="proposta.aprovada">Aprovado</td>
+          <td *ngIf="!proposta.aprovada">Negado</td>
           <td>{{proposta.limiteCred.descricao}}</td>
         </tr>
       </tbody>
