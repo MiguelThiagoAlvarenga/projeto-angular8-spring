@@ -1,0 +1,27 @@
+.panel-pesquisar {
+  padding: 0 0 2rem 0;
+  border-color: #000000;
+  background-color:#fdfdfd;
+}
+
+.pesquisar {
+  margin-bottom: 5em;
+}
+
+.btn-pesquisar {
+  margin-top: 8px;
+  border-color: #000000;
+  color: #000000;
+  background-color: #d3dadd;
+  border-radius: 2.25rem;
+  margin-top: 31px;
+}.btn-pesquisar:hover {
+   color: #fdfdfd;
+   background-color: blue;
+   text-decoration: underline;
+ }
+
+input {
+  border-radius: 4.25rem;
+}
+

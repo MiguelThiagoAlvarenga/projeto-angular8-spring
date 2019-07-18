@@ -1,0 +1,103 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- main app container -->
+    <div class="card m-3">
+      <h5 class="card-header">Cadastrar nova proposta</h5>
+      <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+            <div class="form-group col-5">
+              <label>Nome</label>
+              <input type="text" formControlName="nome" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.nome.errors }" />
+              <div *ngIf="submitted && f.nome.errors" class="invalid-feedback">
+                <div *ngIf="f.nome.errors.required">O nome é obrigatorio</div>
+              </div>
+            </div>
+            <div class="form-group col-5">
+              <label>CPF</label>
+              <input type="text" formControlName="cpf" (blur)="cpf = format(cpf)" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cpf.errors }" />
+              <div *ngIf="submitted && f.cpf.errors" class="invalid-feedback">
+                <div *ngIf="f.cpf.errors.required">CPF é obrigatorio</div>
+              </div>
+            </div>
+            <div class="form-group col">
+              <label>Sexo</label>
+              <select formControlName="sexo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sexo.errors }">
+                <option value=""></option>
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+              </select>
+              <div *ngIf="submitted && f.sexo.errors" class="invalid-feedback">
+                <div *ngIf="f.sexo.errors.required">sexo é obrigatorio</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-3">
+              <label>Idade</label>
+              <input type="text" formControlName="idade" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.idade.errors }" />
+              <div *ngIf="submitted && f.idade.errors" class="invalid-feedback">
+                <div *ngIf="f.idade.errors.required">Idade é obrigatória</div>
+              </div>
+            </div>
+            <div class="form-group col-3">
+              <label>Dependentes</label>
+              <input type="text" formControlName="dependentes" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dependentes.errors }" />
+              <div *ngIf="submitted && f.dependentes.errors" class="invalid-feedback">
+                <div *ngIf="f.dependentes.errors.required">A quantidade de Depedentes é obrigatória</div>
+              </div>
+            </div>
+            <div class="form-group col-2">
+              <label>Renda</label>
+              <input type="text" formControlName="renda" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.renda.errors }" />
+              <div *ngIf="submitted && f.renda.errors" class="invalid-feedback">
+                <div *ngIf="f.renda.errors.required">Renda é obrigatória</div>
+              </div>
+            </div>
+            <div class="form-group col-2">
+              <label>Estado</label>
+              <select formControlName="estado" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.estado.errors }">
+                <option value=""></option>
+                <option value="AM">Amazonas</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+              </select>
+              <div *ngIf="submitted && f.estado.errors" class="invalid-feedback">
+                <div *ngIf="f.estado.errors.required">Estado é obrigatorio</div>
+              </div>
+            </div>
+            <div class="form-group col-2">
+              <label>Estado civil</label>
+              <select formControlName="estado_civil" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.estado_civil.errors }">
+                <option value=""></option>
+                <option value="1">Solteiro(a)</option>
+                <option value="2">Divorciado(a)</option>
+                <option value="3">Casado(a)</option>
+                <option value="4">Viúvo(a)</option>
+              </select>
+              <div *ngIf="submitted && f.sexo.errors" class="invalid-feedback">
+                <div *ngIf="f.sexo.errors.required">sexo é obrigatorio</div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center float-right">
+            <button class="btn btn-primary mr-1">Salve</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<div class="area-btn-novo">
+  <button ngbTooltip="Clique para cadastrar e avaliar nova proposta!" class="btn btn-outline-primary mb-2 mr-2" (click)="openXl(content)">Nova Proposta</button>
+</div>

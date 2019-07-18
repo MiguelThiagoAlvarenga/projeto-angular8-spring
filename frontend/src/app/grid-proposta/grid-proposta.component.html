@@ -1,0 +1,42 @@
+<div class="table-responsive-md">
+  <ng-container class="container-fluid">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">NOME</th>
+        <th scope="col">IDADE</th>
+        <th scope="col">SEXO</th>
+        <th scope="col">ESTADO CIVIL</th>
+        <th scope="col">ESTADO</th>
+        <th scope="col">DEPENDENTES</th>
+        <th scope="col">RENDA R$</th>
+        <th scope="col">RESULTADO ANÁLISE</th>
+        <th scope="col">LIMITE</th>
+      </tr>
+      </thead>
+      <tbody *ngIf="propostas">
+        <tr *ngFor="let proposta of propostas">
+          <td>{{proposta.cliente.nome}}</td>
+          <td>{{proposta.cliente.idade}}</td>
+          <td>{{proposta.cliente.sexo}}</td>
+          <td *ngIf="proposta.cliente.estadoCivil">{{proposta.cliente.estadoCivil.desc}}</td>
+          <td *ngIf="!proposta.cliente.estadoCivil">Não declarou</td>
+          <td>{{proposta.cliente.estado}}</td>
+          <td>{{proposta.cliente.dependentes}}</td>
+          <td>{{proposta.cliente.renda}}</td>
+          <td *ngIf="proposta.aprovado">Aprovado</td>
+          <td *ngIf="!proposta.aprovado">Negado</td>
+          <td>{{proposta.limiteCred.descricao}}</td>
+        </tr>
+      </tbody>
+
+      <div *ngIf="!propostas || propostas.length == 0">
+        <div class="row">
+          <div class="col-lg-12">
+            <h5 class="container-fluid"> Não existem propostas a serem exibidas!</h5>
+          </div>
+        </div>
+      </div>
+    </table>
+  </ng-container>
+</div>

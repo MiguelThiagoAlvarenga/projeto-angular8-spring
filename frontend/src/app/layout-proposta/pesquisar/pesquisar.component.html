@@ -1,0 +1,21 @@
+
+<div class="panel panel-default panel-pesquisar">
+  <div class="panel-body">
+    <div class="row">
+
+      <div class="col-lg-12 border-top border-bottom">
+
+        <div class="pesquisar">
+            <div class="col-lg-10 float-left">
+              <label>Filtrar por CPF</label>
+              <input class="form-control" type="text" placeholder="Digite o CPF aqui!" id="cpf"  [(ngModel)]="cpf" #ctrl="ngModel" >
+            </div>
+
+          <div class="col-lg-2 float-right align-content-center text-center">
+            <button class="btn-pesquisar form-control btn" (click)="pesquisarPorCpf()">Filtrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

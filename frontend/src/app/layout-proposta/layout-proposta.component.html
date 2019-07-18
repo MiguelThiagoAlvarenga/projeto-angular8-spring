@@ -1,0 +1,10 @@
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <app-pesquisar (retornarProposta)="reciverFeedback($event)" ></app-pesquisar>
+
+    <app-cad-proposta [proposta]="proposta"></app-cad-proposta>
+
+    <app-grid-proposta [propostas]="listaPropostas"> </app-grid-proposta>
+  </div>
+</div>
